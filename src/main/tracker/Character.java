@@ -3,7 +3,7 @@ package tracker;
 public class Character {
 	
 	private String name;
-	private int initiative;
+	private int initiative, dexterity;
 	
 	Character(String name) {
 		this(name, 0);
@@ -20,5 +20,17 @@ public class Character {
 	
 	public int getInitiative() {
 		return this.initiative;
+	}
+	
+	public int getDexterity() {
+		return dexterity;
+	}
+	
+	public void setInitiative(int initiative) {
+		this.initiative = initiative;
+	}
+	
+	public void setDexterity(int dexterity) {
+		this.dexterity = dexterity;
 	}
 }
