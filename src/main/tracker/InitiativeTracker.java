@@ -6,11 +6,22 @@ public class InitiativeTracker {
 	
 	private final static int DEFAULT_SIZE = 10;
 	
-	private Character[] initialOrder; // HashMap<Integer, Character[]> ?
+	/**
+	 * initialOrder stores the initial sorting of added characters
+	 * currentOrder is continually updated in the round method
+	 */
+	private Character[] initialOrder, currentOrder; // HashMap<Integer, Character[]> ?
 	private int last = 0;
 	
+	/**
+	 * round stores the current round number
+	 * 0 indicates surprise round or combat has not started
+	 */
+	private int round;
+	
 	InitiativeTracker() {
-		initialOrder = new Character[DEFAULT_SIZE];
+		this.initialOrder = new Character[DEFAULT_SIZE];
+		this.round = 0;
 	}
 	
 	public void add(Character character) {
@@ -28,15 +39,28 @@ public class InitiativeTracker {
 		}
 	}
 	
-	public Character[] getInitialOrder() {
-		return initialOrder;
-	}
-	
 	public void add(Character character, int amount) {
 		for(int i = 0; i < amount; i++) this.add(new Character(character.getName(), character.getInitiative()));
 	}
 	
 	public int size() {
-		return last;
+		return this.last;
+	}
+	
+	public void round() {
+		if(currentOrder == null) currentOrder = initialOrder;
+		round++;
+	}
+	
+	public int getRound() {
+		return this.round;
+	}
+	
+	public Character[] getInitialOrder() {
+		return this.initialOrder;
+	}
+	
+	public Character[] getCurrentOrder() {
+		return this.currentOrder;
 	}
 }

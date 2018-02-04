@@ -50,4 +50,20 @@ public class TrackerTest {
 		for(int i = 1; i <= num; i++) init.add(new Character("Character" + i, i));
 		Assert.assertEquals(num, init.size());
 	}
+	
+	@Test
+	public void round_assertThatRoundMethodIncrementsRoundCounter() {
+		for(int i = 1; i <= num; i++) {
+			init.round();
+			Assert.assertEquals(i, init.getRound());
+		}
+	}
+	
+	@Test
+	public void getCurrentOrder_assertThatCurrentOrderIsEqualToInitialOrderWhenNoSpecialActionsHaveBeenDone() {
+		for(int i = 0; i <= num; i++) init.add(new Character("Character" + i, i));
+		
+		init.round();
+		Assert.assertArrayEquals(init.getInitialOrder(), init.getCurrentOrder());
+	}
 }
