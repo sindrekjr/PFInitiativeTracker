@@ -4,11 +4,11 @@ public class Character {
 	
 	private int initiative;
 	
-	public Character(int initiative) {
+	Character(int initiative) {
 		this.initiative = initiative;
 	}
 	
-	public Character() {
+	Character() {
 	}
 	
 	public int getInitiative() {
