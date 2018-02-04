@@ -46,6 +46,16 @@ public class TrackerTest {
 	}
 	
 	@Test
+	public void add_assertThatCharactersWithEqualInitiativeAreSortedByDexterity() {
+		Character highDex = new Character("First", 10, 20);
+		Character lowDex = new Character("Second", 10, 8);
+		
+		init.add(highDex);
+		init.add(lowDex);
+		Assert.assertEquals(highDex, init.getInitialOrder()[0]);
+	}
+	
+	@Test
 	public void size_assertSizeAfterAddingSeveralCharacters() {
 		for(int i = 1; i <= num; i++) init.add(new Character("Character" + i, i));
 		Assert.assertEquals(num, init.size());
@@ -65,5 +75,13 @@ public class TrackerTest {
 		
 		init.round();
 		Assert.assertArrayEquals(init.getInitialOrder(), init.getCurrentOrder());
+	}
+	
+	@Test
+	public void getCurrentOrder_assertThatCurrentOrderChangesAfterSpecialActions() {
+		for(int i = 0; i <= num; i++) init.add(new Character("Character" + i, i));
+		
+		init.round();
+		Assert.assertNotEquals(init.getInitialOrder(), init.getCurrentOrder());
 	}
 }

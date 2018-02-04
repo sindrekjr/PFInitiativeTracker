@@ -14,6 +14,12 @@ public class Character {
 		this.initiative = initiative;
 	}
 	
+	Character(String name, int initiative, int dexterity) {
+		this.name = name;
+		this.initiative = initiative;
+		this.dexterity = dexterity;
+	}
+	
 	public String getName() {
 		return name;
 	}
