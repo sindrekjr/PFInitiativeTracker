@@ -55,6 +55,18 @@ public class TrackerTest {
 		Assert.assertEquals(highDex, init.getInitialOrder()[0]);
 	}
 	
+	@Test(expected = EqualInitiativeException.class)
+	public void add_throwsExceptionWhenAttemptingToAddIdenticalCharacters() {
+		init.add(character);
+		init.add(character);
+	}
+	
+	@Test(expected = EqualInitiativeException.class)
+	public void add_throwsExceptionWhenAttemptingToAddCharactersWithEqualInitiativeAndDexterity() {
+		init.add(new Character("Guy", num, num));
+		init.add(new Character("Gal", num, num));
+	}
+	
 	@Test
 	public void size_assertSizeAfterAddingSeveralCharacters() {
 		for(int i = 1; i <= num; i++) init.add(new Character("Character" + i, i));
