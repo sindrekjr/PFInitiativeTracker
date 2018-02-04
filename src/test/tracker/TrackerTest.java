@@ -16,23 +16,32 @@ public class TrackerTest {
     }
 
     @Test
-    public void addSingleCharacterToTracker() {
+    public void add_addSingleCharacterToTracker() {
         init.add(character);
 		Assert.assertEquals(character, init.getInitialOrder()[0]);
     }
     
 	@Test
-	public void addSeveralCharactersToTracker() {
+	public void add_addSeveralCharactersToTracker() {
 		for(int i = 0; i <= num; i++) init.add(new Character(i));
 	}
 	
 	@Test
-	public void checkThatCharactersAreSortedByInitiative() {
+	public void add_checkThatCharactersAreSortedByInitiative() {
 		for(int i = 0; i <= num; i++) init.add(new Character(i));
     	
-    	int value = num;
+    	int initiative = num;
 		for(int i = 0; i <= num; i++) {
-			Assert.assertEquals(value--, init.getInitialOrder()[i].getInitiative());
+			Assert.assertEquals(initiative--, init.getInitialOrder()[i].getInitiative());
+		}
+	}
+	
+	@Test
+	public void add_addSeveralGroupsOfCharactersWhereAllInEachGroupHaveEqualInitiative() {
+    	int initiative = num;
+    	for(int i = 1; i <= 5; i++) {
+    		init.add(new Character(initiative), i);
+    		initiative /= 2;
 		}
 	}
 }

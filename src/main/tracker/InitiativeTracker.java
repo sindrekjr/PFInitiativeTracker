@@ -31,4 +31,8 @@ public class InitiativeTracker {
 	public Character[] getInitialOrder() {
 		return initialOrder;
 	}
+	
+	public void add(Character character, int amount) {
+ 		for(int i = 0; i < amount; i++) this.add(new Character(character.getInitiative()));
+	}
 }
