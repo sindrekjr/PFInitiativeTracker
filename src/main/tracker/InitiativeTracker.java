@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class InitiativeTracker {
 	
-	private final int DEFAULT_SIZE = 10;
+	private final int DEFAULT_SIZE = 20;
 	
 	/**
 	 * initialOrder stores the initial sorting of added characters
 	 * currentOrder is continually updated in the round method
 	 */
 	private Character[] initialOrder, currentOrder;
-	private int last = 0;
+	private int last;
 	
 	/**
 	 * round stores the current round number
@@ -19,16 +19,31 @@ public class InitiativeTracker {
 	 */
 	private int round;
 	
+	/**
+	 * Constructor. Sets length of initial order to a default size
+	 */
 	InitiativeTracker() {
 		this.initialOrder = new Character[DEFAULT_SIZE];
+		this.last = 0;
 		this.round = 0;
 	}
 	
-	public void add(Character character) {
+	/**
+	 * Overloaded add method, which allows "amount" parameter to default to 1
+	 * @param character Character object to add
+	 * @throws EqualInitiativeException delegates exception to client
+	 */
+	public void add(Character character) throws EqualInitiativeException {
 		this.add(character, 1);
 	}
 	
-	public void add(Character character, int amount) {
+	/**
+	 * Adds objects of the Character class to the InitiativeTracker
+	 * @param character Character object to add
+	 * @param amount how many duplicates of character to add
+	 * @throws EqualInitiativeException delegates exception to client
+	 */
+	public void add(Character character, int amount) throws EqualInitiativeException {
 		if(last + amount >= initialOrder.length) {
 			initialOrder = Arrays.copyOf(initialOrder, last + amount + DEFAULT_SIZE);
 		}
