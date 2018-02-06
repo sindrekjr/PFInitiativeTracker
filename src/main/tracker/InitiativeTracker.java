@@ -50,7 +50,7 @@ public class InitiativeTracker {
 		
 		for(int i = 0; i <= last; i++) {
 			//if(i == last || resolveInitiative(character, initialOrder[i])) {
-            if(i == last || character.compareTo(initialOrder[i]) > 0 ) {
+			if(i == last || character.compareTo(initialOrder[i]) > 0 ) {
 				System.arraycopy(initialOrder, i, initialOrder, i + amount, last - i);
 				for(int j = 0; j < amount; j++) {
 					initialOrder[i + j] = (amount == 1) ? character : new Character(character.getName(), character.getInitiative(), character.getDexterity());
