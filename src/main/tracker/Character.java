@@ -1,6 +1,6 @@
 package tracker;
 
-public class Character {
+public class Character implements Comparable<Character> {
 	
 	private String name;
 	private int initiative, dexterity;
@@ -39,4 +39,15 @@ public class Character {
 	public void setDexterity(int dexterity) {
 		this.dexterity = dexterity;
 	}
+
+    @Override
+    public int compareTo(Character character) throws EqualInitiativeException {
+	    if(this.getInitiative() != character.getInitiative()) {
+	        return this.getInitiative() - character.getInitiative();
+        } else if(this.getDexterity() != character.getDexterity()) {
+	        return this.getDexterity() - character.getDexterity();
+        } else {
+	        throw new EqualInitiativeException();
+        }
+    }
 }
