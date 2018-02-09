@@ -37,10 +37,10 @@ public class TrackerTest {
 	}
 	
 	@Test
-	public void add_addSeveralGroupsOfCharactersWhereAllInEachGroupHaveEqualInitiative() {
+	public void add_addSeveralGroupsOfCharactersWhereAllInEachGroupHaveEqualInitiativeAndDexterity() {
 		int initiative = num;
 		for(int i = 1; i <= 5; i++) {
-			init.add(new Character("Mob" + i, initiative), i);
+			init.add(new Character("Mob" + i, initiative, num), i);
 			initiative /= 2;
 		}
 	}
@@ -55,7 +55,7 @@ public class TrackerTest {
 		Assert.assertEquals(highDex, init.getInitialOrder()[0]);
 	}
 	
-	@Test(expected = EqualInitiativeException.class)
+	@Test(expected = SameCharacterException.class)
 	public void add_throwsExceptionWhenAttemptingToAddIdenticalCharacters() {
 		init.add(character);
 		init.add(character);

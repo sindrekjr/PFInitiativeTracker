@@ -28,7 +28,7 @@ public class CharacterTest {
 		Assert.assertEquals(avgDexterity, c.getDexterity());
 	}
 
-	@Test(expected = EqualInitiativeException.class)
+	@Test(expected = SameCharacterException.class)
 	public void compareTo_throwsExceptionWhenComparingIdenticalCharacters() {
 		c.compareTo(c);
 	}
@@ -38,5 +38,19 @@ public class CharacterTest {
 		c.setInitiative(avgInitiative);
 		c.setDexterity(avgDexterity);
 		c.compareTo(new Character("Guy", avgInitiative, avgDexterity));
+	}
+
+	@Test
+	public void verifyThatReadyFieldCanBeChanged() {
+		assert(!c.ready);
+		c.ready = true;
+		assert(c.ready);
+	}
+
+	@Test
+	public void verifyThatDelayFieldCanBeChanged() {
+		assert(!c.delay);
+		c.delay = true;
+		assert(c.delay);
 	}
 }

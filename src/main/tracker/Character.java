@@ -3,45 +3,59 @@ package tracker;
 public class Character implements Comparable<Character> {
 	
 	private String name;
-	private int initiative, dexterity;
+	private Integer initiative, dexterity;
+
+	/**
+	 * ready and delay track whether or not given character has activated either special action
+	 */
+	boolean ready, delay = false;
 	
 	Character(String name) {
 		this(name, 0);
 	}
 	
-	Character(String name, int initiative) {
-		this.name = name;
-		this.initiative = initiative;
+	Character(String name, Integer initiative) {
+		this(name, initiative, null);
 	}
 	
-	Character(String name, int initiative, int dexterity) {
+	Character(String name, Integer initiative, Integer dexterity) {
 		this.name = name;
-		this.initiative = initiative;
-		this.dexterity = dexterity;
+		setInitiative(initiative);
+		setDexterity(dexterity);
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	public int getInitiative() {
-		return this.initiative;
+		try {
+			return this.initiative;
+		} catch(NullPointerException e) {
+			throw new NullInitiativeException();
+		}
 	}
 	
 	public int getDexterity() {
-		return dexterity;
+		try {
+			return this.dexterity;
+		} catch(NullPointerException e) {
+			throw new NullDexterityException();
+		}
 	}
 	
-	public void setInitiative(int initiative) {
+	public void setInitiative(Integer initiative) {
 		this.initiative = initiative;
 	}
 	
-	public void setDexterity(int dexterity) {
+	public void setDexterity(Integer dexterity) {
 		this.dexterity = dexterity;
 	}
 
 	@Override
 	public int compareTo(Character character) throws EqualInitiativeException {
+		if(this == character) throw new SameCharacterException();
+
 		if(this.getInitiative() != character.getInitiative()) {
 			return this.getInitiative() - character.getInitiative();
 		} else if(this.getDexterity() != character.getDexterity()) {

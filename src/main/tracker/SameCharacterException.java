@@ -1,4 +1,4 @@
 package tracker;
 
-public class SameCharacterException {
+public class SameCharacterException extends RuntimeException {
 }

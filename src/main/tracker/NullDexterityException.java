@@ -1,4 +1,4 @@
 package tracker;
 
-public class NullDexterityException {
+public class NullDexterityException extends NullPointerException {
 }

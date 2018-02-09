@@ -1,4 +1,4 @@
 package tracker;
 
-public class NullInitiativeException {
+public class NullInitiativeException extends NullPointerException {
 }
