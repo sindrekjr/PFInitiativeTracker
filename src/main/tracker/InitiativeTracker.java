@@ -61,22 +61,6 @@ public class InitiativeTracker {
 		}
 	}
 	
-	/**
-	 * Evaluates whether or not char1 is before char2 in initiative order
-	 * @param char1 Character object
-	 * @param char2 Character object
-	 * @return true if char1 goes first
-	 * @throws EqualInitiativeException in cases where initiative has to be resolved by client
-	 */
-	private boolean resolveInitiative(Character char1, Character char2) throws EqualInitiativeException {
-		if(char1.getInitiative() == char2.getInitiative()) {
-			if(char1.getDexterity() == char2.getDexterity()) throw new EqualInitiativeException();
-			return char1.getDexterity() > char2.getDexterity();
-		}
-		
-		return char1.getInitiative() > char2.getInitiative();
-	}
-	
 	public int size() {
 		return this.last;
 	}
