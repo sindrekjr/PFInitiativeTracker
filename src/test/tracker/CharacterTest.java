@@ -28,12 +28,12 @@ public class CharacterTest {
 		Assert.assertEquals(avgDexterity, c.getDexterity());
 	}
 
-	@Test(expected = SameCharacterException.class)
+	@Test(expected = EqualityException.class)
 	public void compareTo_throwsExceptionWhenComparingIdenticalCharacters() {
 		c.compareTo(c);
 	}
 
-	@Test(expected = EqualInitiativeException.class)
+	@Test(expected = EqualityException.class)
 	public void compareTo_throwsExceptionWhenComparingCharactersOfEqualInitiativeAndDexterity() {
 		c.setInitiative(avgInitiative);
 		c.setDexterity(avgDexterity);

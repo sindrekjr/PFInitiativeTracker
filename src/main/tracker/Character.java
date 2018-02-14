@@ -29,19 +29,11 @@ public class Character implements Comparable<Character> {
 	}
 	
 	public int getInitiative() {
-		try {
-			return this.initiative;
-		} catch(NullPointerException e) {
-			throw new NullInitiativeException();
-		}
+		return this.initiative;
 	}
 	
 	public int getDexterity() {
-		try {
-			return this.dexterity;
-		} catch(NullPointerException e) {
-			throw new NullDexterityException();
-		}
+		return this.dexterity;
 	}
 	
 	public void setInitiative(Integer initiative) {
@@ -53,15 +45,15 @@ public class Character implements Comparable<Character> {
 	}
 
 	@Override
-	public int compareTo(Character character) throws EqualInitiativeException {
-		if(this == character) throw new SameCharacterException();
+	public int compareTo(Character character) throws EqualityException {
+		if(this == character) throw new EqualityException();
 
 		if(this.getInitiative() != character.getInitiative()) {
 			return this.getInitiative() - character.getInitiative();
 		} else if(this.getDexterity() != character.getDexterity()) {
 			return this.getDexterity() - character.getDexterity();
 		} else {
-			throw new EqualInitiativeException();
+			throw new EqualityException();
 		}
 	}
 }

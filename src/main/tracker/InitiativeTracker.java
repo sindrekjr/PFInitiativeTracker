@@ -31,9 +31,9 @@ public class InitiativeTracker {
 	/**
 	 * Overloaded add method, which allows "amount" parameter to default to 1
 	 * @param character Character object to add
-	 * @throws EqualInitiativeException delegates exception to client
+	 * @throws EqualityException delegates exception to client
 	 */
-	public void add(Character character) throws EqualInitiativeException {
+	public void add(Character character) throws EqualityException {
 		this.add(character, 1);
 	}
 	
@@ -41,9 +41,9 @@ public class InitiativeTracker {
 	 * Adds objects of the Character class to the InitiativeTracker
 	 * @param character Character object to add
 	 * @param amount how many duplicates of character to add
-	 * @throws EqualInitiativeException delegates exception to client
+	 * @throws EqualityException delegates exception to client
 	 */
-	public void add(Character character, int amount) throws EqualInitiativeException {
+	public void add(Character character, int amount) throws EqualityException {
 		if(last + amount >= initialOrder.length) {
 			initialOrder = Arrays.copyOf(initialOrder, last + amount + DEFAULT_SIZE);
 		}

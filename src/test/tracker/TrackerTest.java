@@ -55,13 +55,13 @@ public class TrackerTest {
 		Assert.assertEquals(highDex, init.getInitialOrder()[0]);
 	}
 	
-	@Test(expected = SameCharacterException.class)
+	@Test(expected = EqualityException.class)
 	public void add_throwsExceptionWhenAttemptingToAddIdenticalCharacters() {
 		init.add(character);
 		init.add(character);
 	}
 	
-	@Test(expected = EqualInitiativeException.class)
+	@Test(expected = EqualityException.class)
 	public void add_throwsExceptionWhenAttemptingToAddCharactersWithEqualInitiativeAndDexterity() {
 		init.add(new Character("Guy", num, num));
 		init.add(new Character("Gal", num, num));
@@ -89,11 +89,11 @@ public class TrackerTest {
 		Assert.assertArrayEquals(init.getInitialOrder(), init.getCurrentOrder());
 	}
 	
-	@Test
+	/*@Test
 	public void getCurrentOrder_assertThatCurrentOrderChangesAfterSpecialActions() {
 		for(int i = 0; i <= num; i++) init.add(new Character("Character" + i, i));
 		
 		init.round();
 		Assert.assertNotEquals(init.getInitialOrder(), init.getCurrentOrder());
-	}
+	}*/
 }
