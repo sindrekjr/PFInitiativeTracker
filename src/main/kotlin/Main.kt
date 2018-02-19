@@ -1,7 +1,5 @@
-package kotlin
-
-import java.GUI.Frame
+import GUI.MainView
 
 fun main(args: Array<String>) {
-    var gui = Frame();
+    var gui = MainView();
 }

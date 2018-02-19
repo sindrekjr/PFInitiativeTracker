@@ -1,4 +1,4 @@
-package java.tracker;
+package tracker;
 
 import java.util.Arrays;
 

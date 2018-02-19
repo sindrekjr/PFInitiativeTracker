@@ -1,4 +1,4 @@
-package java.tracker;
+package tracker;
 
 public class Character implements Comparable<Character> {
 	
@@ -44,7 +44,6 @@ public class Character implements Comparable<Character> {
 		this.dexterity = dexterity;
 	}
 
-	@Override
 	public int compareTo(Character character) throws EqualityException {
 		if(this == character) throw new EqualityException();
 
