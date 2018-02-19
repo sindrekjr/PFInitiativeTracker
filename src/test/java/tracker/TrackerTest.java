@@ -1,4 +1,4 @@
-package java.tracker;
+package tracker;
 
 import org.junit.Assert;
 import org.junit.Before;

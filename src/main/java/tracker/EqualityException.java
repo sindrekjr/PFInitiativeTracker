@@ -1,4 +1,4 @@
-package java.tracker;
+package tracker;
 
 public class EqualityException extends RuntimeException {
 }
