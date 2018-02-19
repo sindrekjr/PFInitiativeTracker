@@ -1,4 +1,4 @@
-package tracker;
+package java.tracker;
 
 public class Character implements Comparable<Character> {
 	
