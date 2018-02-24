@@ -1,5 +1,6 @@
-import GUI.MainView
+import gui.TrackerApplication
+import javafx.application.Application
 
 fun main(args: Array<String>) {
-    var gui = MainView();
+    Application.launch(TrackerApplication::class.java, *args)
 }
