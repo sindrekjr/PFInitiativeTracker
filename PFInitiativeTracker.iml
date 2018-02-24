@@ -52,7 +52,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
-    <orderEntry type="library" name="Maven: no.tornadofx:tornadofx:${tornadofx.version}" level="project" />
     <orderEntry type="library" name="Maven: no.tornado:tornadofx:1.7.14" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-reflect:1.2.10" level="project" />
