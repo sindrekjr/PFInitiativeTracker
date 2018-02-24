@@ -43,14 +43,14 @@ class CharacterTest {
 	@Test
 	void verifyThatReadyFieldCanBeChanged() {
 		assert(!c.ready);
-		c.ready = true;
+		c.setReady(true);
 		assert(c.ready);
 	}
 
 	@Test
 	void verifyThatDelayFieldCanBeChanged() {
 		assert(!c.delay);
-		c.delay = true;
+		c.setDelay(true);
 		assert(c.delay);
 	}
 }
