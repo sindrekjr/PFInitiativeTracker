@@ -1,5 +1,7 @@
 package tracker;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Character implements Comparable<Character> {
 	
 	private String name;
@@ -44,7 +46,7 @@ public class Character implements Comparable<Character> {
 		this.dexterity = dexterity;
 	}
 
-	public int compareTo(Character character) throws EqualityException {
+	public int compareTo(@NotNull Character character) throws EqualityException {
 		if(this == character) throw new EqualityException();
 
 		if(this.getInitiative() != character.getInitiative()) {
@@ -54,5 +56,15 @@ public class Character implements Comparable<Character> {
 		} else {
 			throw new EqualityException();
 		}
+	}
+	
+	public void setReady(boolean ready) {
+		if(this.delay && ready) setDelay(false);
+		this.ready = ready;
+	}
+	
+	public void setDelay(boolean delay) {
+		if(this.ready && delay) setReady(false);
+		this.delay = delay;
 	}
 }
