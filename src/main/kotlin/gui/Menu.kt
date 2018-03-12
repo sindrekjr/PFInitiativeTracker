@@ -1,5 +1,6 @@
 package gui
 
+import javafx.application.Platform
 import tornadofx.*
 
 class Menu : View() {
@@ -16,7 +17,7 @@ class Menu : View() {
             }
             separator()
             item("Exit").action {
-
+                Platform.exit()
             }
         }
     }
